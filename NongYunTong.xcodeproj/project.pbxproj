@@ -20,11 +20,11 @@
 		B5F84D0015609C0B009A2B46 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B5F84D0215609C0B009A2B46 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B5F84D0415609C0B009A2B46 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		B5F84D0815609C0B009A2B46 /* NongYunTong-Info.plist */ = {isa = PBXFileReference; path = "NongYunTong-Info.plist"; sourceTree = "<group>"; };
+		B5F84D0815609C0B009A2B46 /* NongYunTong-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NongYunTong-Info.plist"; sourceTree = "<group>"; };
 		B5F84D0A15609C0B009A2B46 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B5F84D0C15609C0B009A2B46 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B5F84D0E15609C0B009A2B46 /* NongYunTong-Prefix.pch */ = {isa = PBXFileReference; path = "NongYunTong-Prefix.pch"; sourceTree = "<group>"; };
-		B5F84D0F15609C0B009A2B46 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		B5F84D0E15609C0B009A2B46 /* NongYunTong-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NongYunTong-Prefix.pch"; sourceTree = "<group>"; };
+		B5F84D0F15609C0B009A2B46 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B5F84D1015609C0B009A2B46 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
