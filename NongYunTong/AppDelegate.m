@@ -7,10 +7,16 @@
 //
 
 #import "AppDelegate.h"
+#import "CultureViewController.h"
+#import "TrafficViewController.h"
+#import "WeatherViewController.h"
+#import "LifeViewController.h"
+#import "HomeViewController.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
+@synthesize tabBarController;
 
 - (void)dealloc
 {
@@ -23,6 +29,34 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    tabBarController = [[UITabBarController alloc] init];
+    tabBarController.delegate = self;
+    
+    HomeViewController *homeViewController = [[[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil]autorelease];
+        //首页
+    
+    CultureViewController *cultureViewController = [[[CultureViewController alloc]initWithNibName:@"CultureViewController" bundle:nil]autorelease];
+        //南阳文化
+    
+    
+    TrafficViewController *trafficViewController = [[[TrafficViewController alloc]initWithNibName:@"TrafficViewController" bundle:nil]autorelease];
+        //比赛交通
+    
+    WeatherViewController *weatherViewController = [[[WeatherViewController alloc]initWithNibName:@"WeatherViewController" bundle:nil]autorelease];
+        //比赛天气
+   
+    LifeViewController *lifeViewController = [[[LifeViewController alloc]initWithNibName:@"LifeViewController" bundle:nil]autorelease];
+        //南阳生活向导
+    
+    UINavigationController *cultureNavigationController = [[UINavigationController alloc]initWithRootViewController:cultureViewController];
+    cultureNavigationController.title = @"南阳文化";
+    
+    tabBarController.viewControllers = [NSArray arrayWithObjects:homeViewController,cultureNavigationController,trafficViewController,lifeViewController,weatherViewController, nil];
+    
+    [cultureNavigationController release];
+    self.window.rootViewController = tabBarController;
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
