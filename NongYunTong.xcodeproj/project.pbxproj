@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B53F5EB71563897C00475B68 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53F5EB51563897C00475B68 /* HomeViewController.m */; };
+		B53F5EB81563897C00475B68 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B53F5EB61563897C00475B68 /* HomeViewController.xib */; };
+		B53F5EBD15638ACD00475B68 /* CultureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53F5EBB15638ACD00475B68 /* CultureViewController.m */; };
+		B53F5EBE15638ACD00475B68 /* CultureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B53F5EBC15638ACD00475B68 /* CultureViewController.xib */; };
+		B53F5EC215638B2C00475B68 /* TrafficViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53F5EC015638B2C00475B68 /* TrafficViewController.m */; };
+		B53F5EC315638B2C00475B68 /* TrafficViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B53F5EC115638B2C00475B68 /* TrafficViewController.xib */; };
+		B53F5EC715638B5E00475B68 /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53F5EC515638B5E00475B68 /* WeatherViewController.m */; };
+		B53F5EC815638B5E00475B68 /* WeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B53F5EC615638B5E00475B68 /* WeatherViewController.xib */; };
+		B53F5ECC15638BDB00475B68 /* LifeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53F5ECA15638BDB00475B68 /* LifeViewController.m */; };
+		B53F5ECD15638BDB00475B68 /* LifeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B53F5ECB15638BDB00475B68 /* LifeViewController.xib */; };
 		B5F84D0115609C0B009A2B46 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5F84D0015609C0B009A2B46 /* UIKit.framework */; };
 		B5F84D0315609C0B009A2B46 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5F84D0215609C0B009A2B46 /* Foundation.framework */; };
 		B5F84D0515609C0B009A2B46 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5F84D0415609C0B009A2B46 /* CoreGraphics.framework */; };
@@ -16,6 +26,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B53F5EB41563897C00475B68 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		B53F5EB51563897C00475B68 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		B53F5EB61563897C00475B68 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		B53F5EBA15638ACD00475B68 /* CultureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CultureViewController.h; sourceTree = "<group>"; };
+		B53F5EBB15638ACD00475B68 /* CultureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CultureViewController.m; sourceTree = "<group>"; };
+		B53F5EBC15638ACD00475B68 /* CultureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CultureViewController.xib; sourceTree = "<group>"; };
+		B53F5EBF15638B2C00475B68 /* TrafficViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrafficViewController.h; sourceTree = "<group>"; };
+		B53F5EC015638B2C00475B68 /* TrafficViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrafficViewController.m; sourceTree = "<group>"; };
+		B53F5EC115638B2C00475B68 /* TrafficViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrafficViewController.xib; sourceTree = "<group>"; };
+		B53F5EC415638B5E00475B68 /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewController.h; sourceTree = "<group>"; };
+		B53F5EC515638B5E00475B68 /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
+		B53F5EC615638B5E00475B68 /* WeatherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherViewController.xib; sourceTree = "<group>"; };
+		B53F5EC915638BDB00475B68 /* LifeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeViewController.h; sourceTree = "<group>"; };
+		B53F5ECA15638BDB00475B68 /* LifeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeViewController.m; sourceTree = "<group>"; };
+		B53F5ECB15638BDB00475B68 /* LifeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LifeViewController.xib; sourceTree = "<group>"; };
 		B5F84CFC15609C0B009A2B46 /* NongYunTong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NongYunTong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F84D0015609C0B009A2B46 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B5F84D0215609C0B009A2B46 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -42,6 +67,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B53F5ECE15638BF800475B68 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B53F5EB61563897C00475B68 /* HomeViewController.xib */,
+				B53F5EBC15638ACD00475B68 /* CultureViewController.xib */,
+				B53F5EC115638B2C00475B68 /* TrafficViewController.xib */,
+				B53F5ECB15638BDB00475B68 /* LifeViewController.xib */,
+				B53F5EC615638B5E00475B68 /* WeatherViewController.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B53F5ECF15638C1500475B68 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B53F5ED015638C2F00475B68 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B53F5EBA15638ACD00475B68 /* CultureViewController.h */,
+				B53F5EBB15638ACD00475B68 /* CultureViewController.m */,
+				B53F5EBF15638B2C00475B68 /* TrafficViewController.h */,
+				B53F5EC015638B2C00475B68 /* TrafficViewController.m */,
+				B53F5EC415638B5E00475B68 /* WeatherViewController.h */,
+				B53F5EC515638B5E00475B68 /* WeatherViewController.m */,
+				B53F5EC915638BDB00475B68 /* LifeViewController.h */,
+				B53F5ECA15638BDB00475B68 /* LifeViewController.m */,
+				B53F5EB41563897C00475B68 /* HomeViewController.h */,
+				B53F5EB51563897C00475B68 /* HomeViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		B5F84CF115609C0B009A2B46 = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +133,9 @@
 		B5F84D0615609C0B009A2B46 /* NongYunTong */ = {
 			isa = PBXGroup;
 			children = (
+				B53F5ED015638C2F00475B68 /* Controller */,
+				B53F5ECF15638C1500475B68 /* Model */,
+				B53F5ECE15638BF800475B68 /* View */,
 				B5F84D0F15609C0B009A2B46 /* AppDelegate.h */,
 				B5F84D1015609C0B009A2B46 /* AppDelegate.m */,
 				B5F84D0715609C0B009A2B46 /* Supporting Files */,
@@ -141,6 +205,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5F84D0B15609C0B009A2B46 /* InfoPlist.strings in Resources */,
+				B53F5EB81563897C00475B68 /* HomeViewController.xib in Resources */,
+				B53F5EBE15638ACD00475B68 /* CultureViewController.xib in Resources */,
+				B53F5EC315638B2C00475B68 /* TrafficViewController.xib in Resources */,
+				B53F5EC815638B5E00475B68 /* WeatherViewController.xib in Resources */,
+				B53F5ECD15638BDB00475B68 /* LifeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +222,11 @@
 			files = (
 				B5F84D0D15609C0B009A2B46 /* main.m in Sources */,
 				B5F84D1115609C0B009A2B46 /* AppDelegate.m in Sources */,
+				B53F5EB71563897C00475B68 /* HomeViewController.m in Sources */,
+				B53F5EBD15638ACD00475B68 /* CultureViewController.m in Sources */,
+				B53F5EC215638B2C00475B68 /* TrafficViewController.m in Sources */,
+				B53F5EC715638B5E00475B68 /* WeatherViewController.m in Sources */,
+				B53F5ECC15638BDB00475B68 /* LifeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +328,7 @@
 				B5F84D1615609C0B009A2B46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
