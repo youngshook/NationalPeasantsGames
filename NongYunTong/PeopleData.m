@@ -9,5 +9,5 @@
 #import "PeopleData.h"
 
 @implementation PeopleData
-
+@synthesize s_NO,s_SpecialtiesCulture,s_Source,s_Image;
 @end

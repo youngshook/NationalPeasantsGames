@@ -12,6 +12,7 @@
 #import "WeatherViewController.h"
 #import "LifeViewController.h"
 #import "HomeViewController.h"
+#import "TopCultureViewController.h"
 
 @implementation AppDelegate
 
@@ -32,11 +33,12 @@
     
     tabBarController = [[UITabBarController alloc] init];
     tabBarController.delegate = self;
+   
     
     HomeViewController *homeViewController = [[[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil]autorelease];
         //首页
     
-    CultureViewController *cultureViewController = [[[CultureViewController alloc]initWithNibName:@"CultureViewController" bundle:nil]autorelease];
+    TopCultureViewController *topCultureViewController = [[[TopCultureViewController alloc]init]autorelease];
         //南阳文化
     
     
@@ -49,7 +51,9 @@
     LifeViewController *lifeViewController = [[[LifeViewController alloc]initWithNibName:@"LifeViewController" bundle:nil]autorelease];
         //南阳生活向导
     
-    UINavigationController *cultureNavigationController = [[UINavigationController alloc]initWithRootViewController:cultureViewController];
+    
+    
+    UINavigationController *cultureNavigationController = [[UINavigationController alloc]initWithRootViewController:topCultureViewController];
     cultureNavigationController.title = @"南阳文化";
     
     tabBarController.viewControllers = [NSArray arrayWithObjects:homeViewController,cultureNavigationController,trafficViewController,lifeViewController,weatherViewController, nil];

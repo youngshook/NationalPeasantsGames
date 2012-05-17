@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface CultureViewController : UIViewController
-
+@class PeopleXML;
+@interface CultureViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>{
+   
+}
+@property (strong,nonatomic) UITableView *CultureTableView;
+@property (strong,nonatomic) PeopleXML *peopleXml;
+-(void)SetObject:(id)sender;
 @end

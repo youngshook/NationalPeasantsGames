@@ -10,4 +10,11 @@
 
 @interface PeopleData : NSObject
 
+
+@property (strong,nonatomic) NSString *s_NO;
+@property (strong,nonatomic) NSString *s_SpecialtiesCulture;
+@property (strong,nonatomic) NSString *s_Source;
+@property (strong,nonatomic) NSString *s_Image;
+
+
 @end
