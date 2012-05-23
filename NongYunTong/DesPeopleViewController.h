@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class PeopleData;
-@interface DesPeopleViewController : UIViewController
+@interface DesPeopleViewController : UIViewController<UIScrollViewDelegate>
 @property (strong,nonatomic)PeopleData *peopleData;
 @property (strong,nonatomic)UIImageView *imageView;
 @property (strong,nonatomic)UITextView *textView;

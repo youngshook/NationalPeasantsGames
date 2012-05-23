@@ -1,47 +1,39 @@
 //
-//  DesPeopleViewController.m
+//  PlaceInfoViewController.m
 //  NongYunTong
 //
-//  Created by YoungShook on 12-5-17.
+//  Created by YoungShook on 12-5-19.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "DesPeopleViewController.h"
-#import "PeopleData.h"
+#import "PlaceInfoViewController.h"
 
-@interface DesPeopleViewController ()
+@interface PlaceInfoViewController ()
 
 @end
 
-@implementation DesPeopleViewController
+@implementation PlaceInfoViewController
+@synthesize racePlaceData,textView,scrollView,imageView;
 
-@synthesize imageView,textView,scrollView,peopleData;
-
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
     scrollView.pagingEnabled = YES;
-    scrollView.showsHorizontalScrollIndicator = NO;
+        // scrollView.backgroundColor = [UIColor blueColor];
     scrollView.showsVerticalScrollIndicator = NO;
+    scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.delegate = self;
-    CGSize newSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height+100);
+    CGSize newSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height+200.0f);
     [scrollView setContentSize:newSize];
     [self.view addSubview:scrollView];
-    textView = [[UITextView alloc]initWithFrame:CGRectMake(0, 240, 320, 480)];
-    textView.text = peopleData.s_Source;
+    textView = [[UITextView alloc]initWithFrame:CGRectMake(0, 200, 320, 480)];
+    textView.text = racePlaceData.pIntroduction;
+    textView.editable = NO;
     [scrollView addSubview:textView];
-    imageView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 20, 240, 200)];
-    imageView.image = [UIImage imageNamed:peopleData.s_Image];
+    imageView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 0, 240, 200)];
+    imageView.image = [UIImage imageNamed:racePlaceData.pImage];
     [scrollView addSubview:imageView];
 	// Do any additional setup after loading the view.
 }

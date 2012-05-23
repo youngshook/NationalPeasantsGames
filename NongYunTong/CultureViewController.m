@@ -8,10 +8,12 @@
 
 #import "CultureViewController.h"
 #import "DesPeopleViewController.h"
+#import "ADLivelyTableView.h"
 #import "TBXML.h"
 #import "PeopleXML.h"
 #import "PeopleData.h"
 #import "AppDelegate.h"
+#import "CultureTableCell.h"
 @interface CultureViewController ()
 
 @end
@@ -36,8 +38,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    CultureTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 480) style:UITableViewStylePlain];
+   
+    CultureTableView = [[ADLivelyTableView alloc] initWithFrame:CGRectMake(0, 0, 320, 370) style:UITableViewStylePlain];
+    CultureTableView.initialCellTransformBlock = ADLivelyTransformCurl;
     CultureTableView.dataSource = self;
     CultureTableView.delegate = self;
     [self.view addSubview:CultureTableView];
@@ -66,19 +69,21 @@
 
 //绘制Cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *) indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyIdentifier"];
+    CultureTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"MyIdentifier"]autorelease];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"CultureTableCell" owner:self options:nil];  
+        cell = [array objectAtIndex:0]; 
+        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        UIView * backgroundView = [[UIView alloc] initWithFrame:cell.bounds];
+        cell.backgroundView = backgroundView;
+        [backgroundView release];
+
     }
-    
     PeopleData *peopleData = [peopleXml.mutArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = peopleData.s_SpecialtiesCulture;
-    cell.detailTextLabel.text = peopleData.s_Source;
-    cell.imageView.image = [UIImage imageNamed:peopleData.s_Image];
-    cell.imageView.frame = CGRectMake(0, 0, 30, 30);
+    cell.CellImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",peopleData.s_Image]];
+    cell.CellLabel.text = peopleData.s_SpecialtiesCulture;
+    cell.CellLabelDes.text = peopleData.s_Source;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
     return cell;
 }
 
@@ -103,7 +108,7 @@
 //改变行的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50.f;
+    return 64.0f;
 }
 
 

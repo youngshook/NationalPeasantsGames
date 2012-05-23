@@ -10,4 +10,9 @@
 
 @interface HomeViewController : UIViewController
 
+-(IBAction)RaceCard:(id)sender;
+-(IBAction)RaceItem:(id)sender;
+-(IBAction)RaceVolunteer:(id)sender;
+-(IBAction)RacePlace:(id)sender;
+
 @end

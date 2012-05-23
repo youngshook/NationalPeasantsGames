@@ -19,6 +19,7 @@
 -(id) init{
     if (self = [super init]) {
         self.tabBarItem.title = @"南阳文化";
+        self.navigationItem.title = @"南阳文化";
         self.tabBarItem.image = [UIImage imageNamed:@""];
         XmlFileNameArray = [[NSMutableArray alloc]initWithObjects:@"people",@"te",@"wen",@"fe",@"other",nil];
         peopleXml = [[PeopleXML alloc]init];
@@ -41,7 +42,6 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated{
-    
     [topTableView reloadData];
 }
 
