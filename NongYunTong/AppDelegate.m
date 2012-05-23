@@ -48,17 +48,27 @@
     WeatherViewController *weatherViewController = [[[WeatherViewController alloc]initWithNibName:@"WeatherViewController" bundle:nil]autorelease];
         //比赛天气
    
-    LifeViewController *lifeViewController = [[[LifeViewController alloc]initWithNibName:@"LifeViewController" bundle:nil]autorelease];
+    LifeViewController *lifeViewController = [[[LifeViewController alloc]init]autorelease];
         //南阳生活向导
     
-    
-    
+    UINavigationController *navHomeViewController = [[UINavigationController alloc]initWithRootViewController:homeViewController];
+        navHomeViewController.title = @"农运首页";
     UINavigationController *cultureNavigationController = [[UINavigationController alloc]initWithRootViewController:topCultureViewController];
     cultureNavigationController.title = @"南阳文化";
+    UINavigationController *navTrafficViewController = [[UINavigationController alloc]initWithRootViewController:trafficViewController];
+        navTrafficViewController.title = @"交通服务";
+    UINavigationController *navLifeViewController = [[UINavigationController alloc]initWithRootViewController:lifeViewController];
+        navLifeViewController.title = @"便利向导";
+   
     
-    tabBarController.viewControllers = [NSArray arrayWithObjects:homeViewController,cultureNavigationController,trafficViewController,lifeViewController,weatherViewController, nil];
+    tabBarController.viewControllers = [NSArray arrayWithObjects:navHomeViewController,cultureNavigationController,navTrafficViewController,navLifeViewController,weatherViewController, nil];
     
     [cultureNavigationController release];
+    [navHomeViewController release];
+    [navLifeViewController release];
+    [navTrafficViewController release];
+        // [navWeatherViewController release];
+
     self.window.rootViewController = tabBarController;
     
     [self.window makeKeyAndVisible];

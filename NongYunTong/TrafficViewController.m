@@ -20,6 +20,7 @@
     if (self) {
         self.tabBarItem.title = @"交通服务";
         self.tabBarItem.image = [UIImage imageNamed:@""];
+        self.navigationItem.title = @"交通服务";
     }
     return self;
 }
