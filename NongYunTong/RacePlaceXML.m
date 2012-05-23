@@ -41,7 +41,6 @@
             racePlaceData.pIntroduction = [TBXML textForElement:pIntroduction];
             racePlaceData.pBus= [TBXML textForElement:pBus];
             racePlaceData.pImage = [TBXML textForElement:pImage];
-                // NSLog(@"%@,%@,%@,%@",peopleData.s_NO,peopleData.s_SpecialtiesCulture,peopleData.s_Source, peopleData.s_Image);
             [mutArray addObject:racePlaceData];
             [racePlaceData release];
             

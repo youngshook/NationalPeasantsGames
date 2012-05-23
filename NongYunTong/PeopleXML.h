@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class TBXML;
+
 @interface PeopleXML : NSObject
 
 @property (strong,nonatomic) NSMutableArray *mutArray;
