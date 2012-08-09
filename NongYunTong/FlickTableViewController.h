@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FlickTabView.h"
-
+@class ADLivelyTableView;
 /*
  * Subclasses of FlickTableViewController should implement both the UITableView and FlickTabView delegate and datasource protocols.
  * Important: Do not set tableHeaderView, tableHeaderView is set to flickTabView
@@ -16,14 +16,14 @@
 
 @interface FlickTableViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,FlickTabViewDataSource,FlickTabViewDelegate> {
 @private
-	UITableView* _tableView;
+	ADLivelyTableView* _tableView;
 	FlickTabView* _flickTabView;
 }
 
 /*
  * Provides access to the tableView, just like UITableViewController
  */
-@property(nonatomic,retain) UITableView* tableView;
+@property(nonatomic,retain) ADLivelyTableView* tableView;
 
 /*
  * Provides access to the current flickTabView instance

@@ -12,7 +12,7 @@
 
 @implementation WeatherObject
 @synthesize woeid, locationManager;
-@synthesize	current_Weatherdata, today_Weatherdata, tomorrow_Weatherdata, sunriseAndsunset, location_Data,location,windCondition,atmosphere; 
+@synthesize	current_Weatherdata, today_Weatherdata, tomorrow_Weatherdata, sunriseAndsunset, location_Data,location,windCondition,atmosphere,firstRun; 
 @synthesize	delegate;
 
 
@@ -29,7 +29,7 @@
 		today = YES;
 		delegate = nil;
 	}
-    firstRun = YES;
+    self.firstRun = YES;
 	return self;
 }
 - (void)updateWeather{

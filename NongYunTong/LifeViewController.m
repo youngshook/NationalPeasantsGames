@@ -8,12 +8,14 @@
 
 #import "LifeViewController.h"
 #import "DesLifeViewController.h"
+#import "BlockActionSheet.h"
 #import "LifeData.h"
 #import "LifeXML.h"
 #import "TravelCell.h"
 #import "TrainsCell.h"
 #import "AirCell.h"
 #import "BusCell.h"
+#define kSCNavBarImageTag 10
 @interface LifeViewController ()
 
 @end
@@ -24,7 +26,7 @@
 -(id) init{
     if (self = [super init]) {
         self.tabBarItem.title = @"便利向导";
-        self.tabBarItem.image = [UIImage imageNamed:@""];
+        self.tabBarItem.image = [UIImage imageNamed:@"Fourth.png"];
         self.navigationItem.title = @"便利向导";
     }
     return self;
@@ -40,22 +42,31 @@
     mutableArray1 = [lifeXML XML:@"scenery"];
     mutableArray2 = [lifeXML XML:@"clothesing"];
     mutableArray3 = [lifeXML XML:@"winshop"];
-    mutableArray4 = [lifeXML XML:@"supermarket"];
+
     mutableArray5 = [lifeXML XML:@"hotel"];
     mutableArray6 = [lifeXML XML:@"Trains"];
     mutableArray7 = [lifeXML XML:@"bus"];
     mutableArray8 = [lifeXML XML:@"air"];
-    
-        
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 50.0f)];
-	label.text = @"2012南阳全国农民运动会";
-	label.textAlignment = UITextAlignmentCenter;
-	label.font = [UIFont boldSystemFontOfSize:14.0f];
-	label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-	self.tableView.tableFooterView = label;
-	[label release];
-	
 	self.title = @"便利向导";
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    
+    if ([navBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)])
+        { 
+                //if iOS 5.0 and later 
+            [navBar setBackgroundImage:[UIImage imageNamed:@"navigationBarBackgroundRetro.png"] forBarMetrics:UIBarMetricsDefault];
+        } 
+    else 
+        { 
+            UIImageView *imageView = (UIImageView *)[navBar viewWithTag:kSCNavBarImageTag];
+            if (imageView == nil) 
+                { 
+                    imageView = [[UIImageView alloc] initWithImage: 
+                                 [UIImage imageNamed:@"navigationBarBackgroundRetro.png"]];
+                    [imageView setTag:kSCNavBarImageTag]; 
+                    [navBar insertSubview:imageView atIndex:0];
+                    [imageView release]; 
+                } 
+        } 
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -80,21 +91,18 @@
         return [mutableArray3 count];
     }
     else if (self.flickTabView.selectedTabIndex == 3) {
-        return [mutableArray4 count];
-    }
-    else if (self.flickTabView.selectedTabIndex == 4) {
        return [mutableArray5 count];
     }
-    else if (self.flickTabView.selectedTabIndex == 5) {
+    else if (self.flickTabView.selectedTabIndex == 4) {
         return [mutableArray6 count];
     }
-    else if (self.flickTabView.selectedTabIndex == 6) {
+    else if (self.flickTabView.selectedTabIndex == 5) {
         return [mutableArray7 count];
     }
-    else if (self.flickTabView.selectedTabIndex == 7) {
+    else if (self.flickTabView.selectedTabIndex == 6) {
         return [mutableArray8 count];
     }
-
+    
 }
 
 
@@ -171,25 +179,6 @@
             [backgroundView release];
         }
         
-        LifeData *data = [mutableArray4 objectAtIndex:indexPath.row];
-        cell.CellImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",data.Des5]];
-        cell.CellLabel.text = data.Des1;
-        cell.CellLabelDes.text = data.Des4;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        return cell;
-    }
-    else if (self.flickTabView.selectedTabIndex == 4) {
-        
-        TravelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TravelCell"];
-        if (cell == nil) {
-            NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"TravelCell" owner:self options:nil];  
-            cell = [array objectAtIndex:0]; 
-            cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-            UIView * backgroundView = [[UIView alloc] initWithFrame:cell.bounds];
-            cell.backgroundView = backgroundView;
-            [backgroundView release];
-        }
-        
         LifeData *data = [mutableArray5 objectAtIndex:indexPath.row];
         cell.CellImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",data.Des7]];
         cell.CellLabel.text = data.Des1;
@@ -197,7 +186,7 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return cell;
     }
-    else if (self.flickTabView.selectedTabIndex == 5) {
+    else if (self.flickTabView.selectedTabIndex == 4) {
         
         TrainsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrainsCell"];
         if (cell == nil) {
@@ -215,11 +204,12 @@
         cell.label4.text = data.Des8;
         cell.label5.text = data.Des4;
         cell.label6.text = data.Des5;
+        cell.CellImage.image = [UIImage imageNamed:@"huoche.png"];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return cell;
        
     }
-    else if (self.flickTabView.selectedTabIndex == 6) {
+    else if (self.flickTabView.selectedTabIndex == 5) {
         
         BusCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BusCell"];
         if (cell == nil) {
@@ -239,7 +229,7 @@
         return cell;
         
     }
-    else if (self.flickTabView.selectedTabIndex == 7) {
+    else if (self.flickTabView.selectedTabIndex == 6) {
         
         AirCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AirCell"];
         if (cell == nil) {
@@ -270,56 +260,115 @@
     
     if (self.flickTabView.selectedTabIndex == 0) {
         LifeData *data = [mutableArray1 objectAtIndex:indexPath.row];
-        DesLifeViewController *desLifeViewController = [[DesLifeViewController alloc]init];
-        desLifeViewController.label.text = data.Des2;
-        desLifeViewController.textView.text = data.Des4;
-        desLifeViewController.imageView.image = [UIImage imageNamed:data.Des3];
-        [self.navigationController pushViewController:desLifeViewController animated:YES];
+        BlockActionSheet *sheet = [BlockActionSheet sheetWithTitle:[NSString stringWithFormat:@"%@欢迎您,如需购票，您可以通过如下方式预定景点门票,门票价格:%@元",data.Des2,data.Des5]];
+        [sheet setCancelButtonWithTitle:@"返回" block:nil];
+        [sheet setDestructiveButtonWithTitle:@"通过南阳旅游网预定门票" block:^{
+            NSString *num = [[NSString alloc] initWithFormat:@"www.110.com",data.Des6];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
+            [num release];
+        }];
+        [sheet addButtonWithTitle:@"查看此景点详细信息" block:^{
+            DesLifeViewController *desLifeViewController = [[DesLifeViewController alloc]init];
+            desLifeViewController.label.text = data.Des2;
+            desLifeViewController.textView.text = data.Des4;
+            desLifeViewController.imageView.image = [UIImage imageNamed:data.Des3];
+            [self.navigationController pushViewController:desLifeViewController animated:YES];
+            [desLifeViewController release];
+        }];
+        [sheet showInView:self.tableView];
     }
     else if (self.flickTabView.selectedTabIndex == 1) {
         LifeData *data = [mutableArray2 objectAtIndex:indexPath.row];
-        DesLifeViewController *desLifeViewController = [[DesLifeViewController alloc]init];
-        desLifeViewController.label.text = data.Des1;
-        desLifeViewController.textView.text = data.Des3;
-        desLifeViewController.imageView.image = [UIImage imageNamed:data.Des5];
-        [self.navigationController pushViewController:desLifeViewController animated:YES];
-
+        BlockActionSheet *sheet = [BlockActionSheet sheetWithTitle:[NSString stringWithFormat:@"%@欢迎您,商场位于%@",data.Des1,data.Des2]];
+        [sheet setCancelButtonWithTitle:@"返回" block:nil];
+        [sheet setDestructiveButtonWithTitle:@"查看商场详细介绍" block:^{
+            DesLifeViewController *desLifeViewController = [[DesLifeViewController alloc]init];
+            desLifeViewController.label.text = data.Des1;
+            desLifeViewController.textView.text = data.Des3;
+            desLifeViewController.imageView.image = [UIImage imageNamed:data.Des5];
+            [self.navigationController pushViewController:desLifeViewController animated:YES];
+            [desLifeViewController release];
+        }];
+        
+        [sheet showInView:self.tableView];
     }
     else if (self.flickTabView.selectedTabIndex == 2) {
         LifeData *data = [mutableArray3 objectAtIndex:indexPath.row];
-        DesLifeViewController *desLifeViewController = [[DesLifeViewController alloc]init];
-        desLifeViewController.label.text = data.Des1;
-        desLifeViewController.textView.text = data.Des5;
-        desLifeViewController.imageView.image = [UIImage imageNamed:data.Des7];
-        [self.navigationController pushViewController:desLifeViewController animated:YES];
+        BlockActionSheet *sheet = [BlockActionSheet sheetWithTitle:[NSString stringWithFormat:@"%@欢迎您,酒店位于%@,星级:%@",data.Des1,data.Des2,data.Des3]];
+        [sheet setCancelButtonWithTitle:@"返回" block:nil];
+        [sheet setDestructiveButtonWithTitle:@"拨打酒店订餐电话" block:^{
+            NSString *num = [[NSString alloc] initWithFormat:@"tel://4006011604",data.Des4];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
+            [num release];
+        }];
+        [sheet addButtonWithTitle:@"查看酒店详细信息" block:^{
+            DesLifeViewController *desLifeViewController = [[DesLifeViewController alloc]init];
+            desLifeViewController.label.text = data.Des1;
+            desLifeViewController.textView.text = data.Des5;
+            desLifeViewController.imageView.image = [UIImage imageNamed:data.Des7];
+            [self.navigationController pushViewController:desLifeViewController animated:YES];
+            [desLifeViewController release];
+        }];
+        [sheet showInView:self.tableView];
 
     }
     else if (self.flickTabView.selectedTabIndex == 3) {
-        LifeData *data = [mutableArray4 objectAtIndex:indexPath.row];
-        DesLifeViewController *desLifeViewController = [[DesLifeViewController alloc]init];
-        desLifeViewController.label.text = data.Des1;
-        desLifeViewController.textView.text = data.Des3;
-        desLifeViewController.imageView.image = [UIImage imageNamed:data.Des5];
-        [self.navigationController pushViewController:desLifeViewController animated:YES];
+        LifeData *data = [mutableArray5 objectAtIndex:indexPath.row];
+        BlockActionSheet *sheet = [BlockActionSheet sheetWithTitle:[NSString stringWithFormat:@"%@欢迎您,宾馆位于%@,星级:%@,",data.Des1,data.Des2,data.Des3]];
+        [sheet setCancelButtonWithTitle:@"返回" block:nil];
+        [sheet setDestructiveButtonWithTitle:@"拨打宾馆订房热线" block:^{
+            NSString *num = [[NSString alloc] initWithFormat:@"tel://%@",data.Des4];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
+            [num release];
+        }];
+        [sheet addButtonWithTitle:@"查看宾馆详细信息" block:^{
+            DesLifeViewController *desLifeViewController = [[DesLifeViewController alloc]init];
+            desLifeViewController.label.text = data.Des1;
+            desLifeViewController.textView.text = data.Des5;
+            desLifeViewController.imageView.image = [UIImage imageNamed:data.Des7];
+            [self.navigationController pushViewController:desLifeViewController animated:YES];
+            [desLifeViewController release];
+        }];
+        [sheet showInView:self.tableView];
     }
     else if (self.flickTabView.selectedTabIndex == 4) {
-        LifeData *data = [mutableArray5 objectAtIndex:indexPath.row];
-        DesLifeViewController *desLifeViewController = [[DesLifeViewController alloc]init];
-        desLifeViewController.label.text = data.Des1;
-        desLifeViewController.textView.text = data.Des5;
-        desLifeViewController.imageView.image = [UIImage imageNamed:data.Des7];
-        [self.navigationController pushViewController:desLifeViewController animated:YES];
-
+        LifeData *data = [mutableArray6 objectAtIndex:indexPath.row];
+        BlockActionSheet *sheet = [BlockActionSheet sheetWithTitle:[NSString stringWithFormat:@"欢迎乘坐%@次列车,本次列车车票价格:%@元,行车时间共:%@,如需乘坐本次列车，您可以通过如下方式预定火车票,",data.Des1,data.Des7,data.Des6]];
+        [sheet setCancelButtonWithTitle:@"返回" block:nil];
+        [sheet setDestructiveButtonWithTitle:@"拨打全国火车票订票电话" block:^{
+            NSString *num = [[NSString alloc] initWithFormat:@"tel://4006011604"];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
+            [num release];
+        }];
+        [sheet addButtonWithTitle:@"通过铁道部官网进行订票" block:^{
+            NSString *num = [[NSString alloc] initWithFormat:@"www.110.com"];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
+            [num release];
+        }];
+        [sheet showInView:self.tableView];
     }
     else if (self.flickTabView.selectedTabIndex == 5) {
-        
-    }
-    else if (self.flickTabView.selectedTabIndex == 6) {
-       
+        LifeData *data = [mutableArray7 objectAtIndex:indexPath.row];
+        BlockActionSheet *sheet = [BlockActionSheet sheetWithTitle:[NSString stringWithFormat:@"%@欢迎您,如需乘坐本次客车，您可以通过如下方式预定车票,车票价格:%@元",data.Des2,data.Des5]];
+        [sheet setCancelButtonWithTitle:@"返回" block:nil];
+        [sheet setDestructiveButtonWithTitle:@"拨打当地客车订票电话" block:^{
+            NSString *num = [[NSString alloc] initWithFormat:@"tel://%@",data.Des6];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
+            [num release];
+        }];
+        [sheet showInView:self.tableView];
 
     }
-    else if (self.flickTabView.selectedTabIndex == 7) {
-        
+    else if (self.flickTabView.selectedTabIndex == 6) {
+        LifeData *data = [mutableArray8 objectAtIndex:indexPath.row];
+        BlockActionSheet *sheet = [BlockActionSheet sheetWithTitle:[NSString stringWithFormat:@"%@欢迎您,此次航班航行时间:%@,如需乘坐%@次航班,您可以通过如下方式预定机票",data.Des2,data.Des6,data.Des1]];
+        [sheet setCancelButtonWithTitle:@"返回" block:nil];
+        [sheet setDestructiveButtonWithTitle:@"拨打当地机场进行订票" block:^{
+            NSString *num = [[NSString alloc] initWithFormat:@"tel://114"];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
+            [num release];
+        }];
+        [sheet showInView:self.tableView];
     }
 
 }
@@ -334,7 +383,7 @@
 
 - (NSInteger)numberOfTabsInScrollTabView:(FlickTabView*)scrollTabView {
     
-	return 8;
+	return 7;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -345,9 +394,9 @@
 
 
 - (NSString*)scrollTabView:(FlickTabView*)scrollTabView titleForTabAtIndex:(NSInteger)index {
-   NSMutableArray  *titleArray = [[NSMutableArray alloc]initWithObjects:@"旅游",@"购物",@"酒店",@"超市",@"宾馆",@"火车",@"汽车",@"飞机", nil];
+   NSMutableArray  *titleArray = [[NSMutableArray alloc]initWithObjects:@"旅游",@"购物",@"酒店",@"宾馆",@"火车",@"汽车",@"飞机", nil];
     NSString *title = [titleArray objectAtIndex:index];
-
+    [titleArray release];
 	return title;
 }
 
@@ -356,6 +405,15 @@
 
 
 - (void)dealloc {
+    [lifeXML release];
+    [mutableArray1 release];
+    [mutableArray2 release];
+    [mutableArray3 release];
+    [mutableArray4 release];
+    [mutableArray5 release];
+    [mutableArray6 release];
+    [mutableArray7 release];
+    [mutableArray8 release];
     [super dealloc];
 }
 

@@ -11,5 +11,6 @@
 @interface RacePlaceXML : NSObject
 @property (strong,nonatomic)RacePlaceData *racePlaceData;
 @property (strong,nonatomic) NSMutableArray *mutArray;
+@property (strong,nonatomic)NSString *string;
 -(NSMutableArray *)XML;
 @end

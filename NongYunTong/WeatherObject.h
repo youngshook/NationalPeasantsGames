@@ -42,7 +42,7 @@
 @property(nonatomic, retain)NSDictionary *location_Data;
 @property(nonatomic, retain)NSString *woeid;
 @property(assign) id<WeatherDelegate> delegate;
-
+@property(assign,nonatomic)BOOL firstRun;
 - (void)updateWeather;
 @end
 

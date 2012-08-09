@@ -9,10 +9,12 @@
 #import "AppDelegate.h"
 #import "CultureViewController.h"
 #import "TrafficViewController.h"
-#import "WeatherViewController.h"
+#import "RootViewController.h"
 #import "LifeViewController.h"
 #import "HomeViewController.h"
 #import "TopCultureViewController.h"
+#import "SplashViewController.h"
+#import "CheckNetwork.h"
 
 @implementation AppDelegate
 
@@ -30,48 +32,48 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-    
+    [CheckNetwork isExistenceNetwork];
     tabBarController = [[UITabBarController alloc] init];
     tabBarController.delegate = self;
-   
-    
-    HomeViewController *homeViewController = [[[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil]autorelease];
+    HomeViewController *homeViewController = [[[HomeViewController alloc]init]autorelease];
         //首页
     
     TopCultureViewController *topCultureViewController = [[[TopCultureViewController alloc]init]autorelease];
         //南阳文化
     
     
-    TrafficViewController *trafficViewController = [[[TrafficViewController alloc]initWithNibName:@"TrafficViewController" bundle:nil]autorelease];
-        //比赛交通
+    TrafficViewController *trafficViewController = [[[TrafficViewController alloc]init]autorelease];        //比赛交通
     
-    WeatherViewController *weatherViewController = [[[WeatherViewController alloc]initWithNibName:@"WeatherViewController" bundle:nil]autorelease];
-        //比赛天气
-   
+    
     LifeViewController *lifeViewController = [[[LifeViewController alloc]init]autorelease];
         //南阳生活向导
+    
+    RootViewController *rootViewController = [[[RootViewController alloc]init]autorelease];
+        //比赛天气
     
     UINavigationController *navHomeViewController = [[UINavigationController alloc]initWithRootViewController:homeViewController];
         navHomeViewController.title = @"农运首页";
     UINavigationController *cultureNavigationController = [[UINavigationController alloc]initWithRootViewController:topCultureViewController];
     cultureNavigationController.title = @"南阳文化";
-    UINavigationController *navTrafficViewController = [[UINavigationController alloc]initWithRootViewController:trafficViewController];
-        navTrafficViewController.title = @"交通服务";
     UINavigationController *navLifeViewController = [[UINavigationController alloc]initWithRootViewController:lifeViewController];
         navLifeViewController.title = @"便利向导";
-   
+    UINavigationController *navRootViewController = [[UINavigationController alloc]initWithRootViewController:rootViewController];
     
-    tabBarController.viewControllers = [NSArray arrayWithObjects:navHomeViewController,cultureNavigationController,navTrafficViewController,navLifeViewController,weatherViewController, nil];
+    tabBarController.viewControllers = [NSArray arrayWithObjects:navHomeViewController,cultureNavigationController,trafficViewController,navLifeViewController,navRootViewController, nil];
     
     [cultureNavigationController release];
     [navHomeViewController release];
     [navLifeViewController release];
-    [navTrafficViewController release];
-        // [navWeatherViewController release];
+    [navRootViewController release];
 
+    
+    SplashViewController *splashViewController = [[SplashViewController alloc]init];
+    
     self.window.rootViewController = tabBarController;
     
     [self.window makeKeyAndVisible];
+    [self.window addSubview:splashViewController.view];
+    [splashViewController release];
     return YES;
 }
 

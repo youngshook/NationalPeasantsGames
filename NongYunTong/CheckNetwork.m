@@ -25,7 +25,7 @@
             break;
     }
 	if (!isExistenceNetwork) {
-		UIAlertView *myalert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"网络不可达" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil,nil];
+		UIAlertView *myalert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"您当前无网络连接，请检查！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil,nil];
 		[myalert show];
 		[myalert release];
 	}

@@ -11,5 +11,6 @@
 @interface LifeXML : NSObject
 @property (strong,nonatomic) LifeData *lifeData;
 @property (strong,nonatomic)NSMutableArray *mutableArray;
+@property (strong,nonatomic)NSString *string;
 -(NSMutableArray *)XML:(NSString *)itemXML;
 @end

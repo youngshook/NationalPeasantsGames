@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>钱方支付</title>
+    
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="description" content="qfpay" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="qfpay" /> 
+    <meta name="copyright" content="qfpay Inc" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    
+    <!-- CSS -->
+	<style>
+			body {
+			margin:0;
+			padding:0;
+		}
+		a {
+			-webkit-touch-callout:none;
+			color:#3676b6;
+		}
+		a:hover:active {
+			color:#3676b6;
+		}
+		html,body {
+			-webkit-user-select:none;
+			-moz-user-select:none;
+			user-select:none;
+		}
+		body,table,input,textarea,select,button {
+			font:normal 14px "helvetica neue",helvetica,arial,sans-serif;
+			line-height:20px;
+			-webkit-font-smoothing:antialiased;
+			color:#52585d;
+		}
+		h1 {
+			text-align:center;
+			font-weight:normal;
+			font-size:24px;
+			line-height:30px;
+			padding-top:10px;
+		}
+		h2 {
+			display:block;
+			font-weight:bold;
+			text-align: left;
+			margin:10px 0 0;
+			font-size:16px;
+			line-height:20px;
+		}
+		p {
+			line-height: 20px;
+			text-align: left;
+		}
+		.about p {
+			margin-bottom: 10px;
+		}
+		pre {
+			font-style: italic;
+			background-color: #f1f6fb;
+		}
+		h1,h2,p,ul,legend,address {
+			text-shadow:0 1px 0 #fff
+		}
+
+		/* @end */
+
+		/* @group Layout */
+
+		.page {
+			padding:0 10px 17px;
+			width:300px;
+			margin-right:auto;
+			margin-left:auto;
+		}
+		.content {
+			min-height:347px;
+			padding-top:10px;
+		}
+		.content-two-actions {
+			min-height:293px;
+		}
+		html{
+			background:#fafbfc url(../images/mobile-home/glow.png) no-repeat center center;
+		}
+		.mobile-homepage h1 {
+			margin:0;
+			background:transparent url(../images/mobile-home/home.png) no-repeat;
+			height:273px;
+		}
+		.mobile-homepage h1 span {
+			display:none;
+		}
+		@media screen and (-webkit-min-device-pixel-ratio: 2) {
+			html {
+			background-image:url(../images/mobile-home/glow@2x.png);
+			background-size:541px 541px
+		  }
+		.mobile-homepage h1 {
+			background-image:url(../images/mobile-home/home@2x.png);
+			background-size:302px 280px
+		  }
+		}
+
+		.bottom-divider {
+			margin-bottom:15px;
+			background:url(../images/hr.png) repeat-x bottom center;
+			padding-bottom:16px
+		}
+
+		@media screen and (-webkit-min-device-pixel-ratio: 2){
+		 .bottom-divider {
+			background-image:url(../images/hr@2x.png);
+			background-size:6px 2px
+		 }
+		}
+
+		/* @end */
+
+		/* @group Buttons */
+
+		a.button {
+			display:block;
+			background:#999;
+			background:-moz-linear-gradient(center bottom, #f2f2f2 0%, #dadce0 50%, #e4e5e9 51%, #fdfdfd 100%);
+			background:-webkit-gradient(linear, left bottom, left top, color-stop(0, #f2f2f2), color-stop(0.5, #dadce0), color-stop(0.51, #e4e5e9), color-stop(1, #fdfdfd));
+			padding:11px 10px;
+			color:#52585d;
+			text-align:center;
+			-webkit-border-radius:6px;
+			-moz-border-radius:6px;
+			border-radius:6px;
+			-webkit-border-radius:9px;
+			font-size:18px;
+			font-weight:bold;
+			text-decoration:none !important;
+			text-shadow:0 1px 0 rgba(255,255,255,0.75);
+			-webkit-box-shadow:0 0 0 1px #a7afb5 inset,0 0 1px 2px rgba(255,255,255,0.2) inset,0 1px 2px rgba(255,255,255,0.5);
+			-moz-box-shadow:0 0 0 1px #a7afb5 inset,0 0 1px 2px rgba(255,255,255,0.2) inset,0 1px 2px rgba(255,255,255,0.5);
+			box-shadow:0 0 0 1px #a7afb5 inset,0 0 1px 2px rgba(255,255,255,0.2) inset,0 1px 2px rgba(255,255,255,0.5);
+			-webkit-tap-highlight-color:rgba(0,0,0,0);
+		}
+		a.button.active {
+			background:-moz-linear-gradient(center bottom, #bfbfbf 0%, #a3a8b2 50%, #acafbb 51%, #cacaca 100%);
+			background:-webkit-gradient(linear, left bottom, left top, color-stop(0, #bfbfbf), color-stop(0.5, #a3a8b2), color-stop(0.51, #acafbb), color-stop(1, #cacaca));
+			color:#52585d;
+		}
+		a.primary {
+			background:#3676b6;
+			background:-moz-linear-gradient(center bottom, #12b3f3 0%, #1c41c3 50%, #375edd 51%, #77acf2 100%);
+			background:-webkit-gradient(linear, left bottom, left top, color-stop(0, #12b3f3), color-stop(0.5, #1c41c3), color-stop(0.51, #375edd), color-stop(1, #77acf2));
+			color:#fff;
+			text-shadow:0 -1px 0 rgba(0,0,0,0.5);
+			-webkit-box-shadow:0 0 0 1px #2b48a8 inset,0 0 1px 2px rgba(255,255,255,0.2) inset,0 1px 2px rgba(255,255,255,0.5);
+			-moz-box-shadow:0 0 0 1px #2b48a8 inset,0 0 1px 2px rgba(255,255,255,0.2) inset,0 1px 2px rgba(255,255,255,0.5);
+			box-shadow:0 0 0 1px #2b48a8 inset,0 0 1px 2px rgba(255,255,255,0.2) inset,0 1px 2px rgba(255,255,255,0.5);
+		}
+		a.primary.active {
+			background:-moz-linear-gradient(center bottom, #086e97 0%, #0f236a 50%, #193695 51%, #1a73e9 100%);
+			background:-webkit-gradient(linear, left bottom, left top, color-stop(0, #086e97), color-stop(0.5, #0f236a), color-stop(0.51, #193695), color-stop(1, #1a73e9));
+			color: #fff;
+		}
+		.actions {
+			overflow:hidden;
+		}
+		.button + .button {
+			margin-top:12px;
+		}
+
+	</style>
+    <link href="mobile.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Javascript -->
+    <script type="text/javascript" charset="utf-8" src="js/jquery-1.7.min.js"></script>
+    
+    <!-- Favicon --> 
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-precomposed-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-precomposed-114x114.png" />
+  </head>
+  
+  <body class="public mobile-homepage">
+  
+    <div class="clear"></div>
+	<div class="text_dir nslog-area log-set-param" data-nslog-type="1016" data-subindex="0" id="catalog-0" log-set-param="catalogshow">
+	<p>目录</p>
+	<dl class="holder" id="catalog-holder-0">
+	<dd class="catalog-item">
+	<a catalog="true" class="nslog:1274 " href="#1" name="STAT_ONCLICK_UNSUBMIT_CATALOG">南阳农运会简介</a>
+	</dd>
+	<dd class="catalog-item">
+	<a catalog="true" class="nslog:1274 " href="#2" name="STAT_ONCLICK_UNSUBMIT_CATALOG">准备工作</a>
+	</dd>
+	<dd class="catalog-item">
+	<a catalog="true" class="nslog:1274 " href="#3" name="STAT_ONCLICK_UNSUBMIT_CATALOG">新的里程碑</a>
+	<ol class="hide"><li class="hold-catalog-li"><a catalog="true" href="#3_1">态宜居样板区</a></li>
+	<li class="hold-catalog-li"><a catalog="true" href="#3_2">对接世界信息平台</a></li>
+	</ol></dd>
+	<dd class="catalog-item">
+	<a catalog="true" class="nslog:1274 " href="#4" name="STAT_ONCLICK_UNSUBMIT_CATALOG">谱写浓情赞歌</a>
+	</dd>
+	<dd class="catalog-item">
+	<a catalog="true" class="nslog:1274 " href="#5" name="STAT_ONCLICK_UNSUBMIT_CATALOG">比赛场馆及地点</a>
+	<ol class="hide"><li class="hold-catalog-li"><a catalog="true" href="#5_1">场馆</a></li>
+	<li class="hold-catalog-li"><a catalog="true" href="#5_2">地点</a></li>
+	</ol></dd>
+	<dd class="catalog-item">
+	<a catalog="true" class="nslog:1274 " href="#6" name="STAT_ONCLICK_UNSUBMIT_CATALOG">主题和吉祥物</a>
+	<ol class="hide"><li class="hold-catalog-li"><a catalog="true" href="#6_1">征集</a></li>
+	<li class="hold-catalog-li"><a catalog="true" href="#6_2">会徽</a></li>
+	<li class="hold-catalog-li"><a catalog="true" href="#6_3">吉祥物</a></li>
+	<li class="hold-catalog-li"><a catalog="true" href="#6_4">主题口号</a></li>
+	<li class="hold-catalog-li"><a catalog="true" href="#6_5">高度保密</a></li>
+	</ol></dd>
+	<dd class="catalog-item">
+	<a catalog="true" class="nslog:1274 " href="#7" name="STAT_ONCLICK_UNSUBMIT_CATALOG">社会各界大力支持</a>
+	<ol class="hide"><li class="hold-catalog-li"><a catalog="true" href="#7_1">领导单位</a></li>
+	<li class="hold-catalog-li"><a catalog="true" href="#7_2">银行</a></li>
+	</ol></dd>
+	<dd class="catalog-item">
+	<a catalog="true" class="nslog:1274 hide" href="#8" name="STAT_ONCLICK_UNSUBMIT_CATALOG">各项筹备工作</a>
+	<ol class="hide"><li class="hold-catalog-li"><a catalog="true" href="#8_1">硬件</a></li>
+	<li class="hold-catalog-li"><a catalog="true" href="#8_2">软件</a></li>
+	<li class="hold-catalog-li"><a catalog="true" href="#8_3">筹委会正式成立</a></li>
+	</ol></dd>
+	<dd class="catalog-item">
+	<a catalog="true" class="nslog:1274 hide" href="#9" name="STAT_ONCLICK_UNSUBMIT_CATALOG">历届农运会简介</a>
+	</dd>
+	<dd class="nslog:1018 catalog-holder catalog-holder0" show-type="show">展开</dd>
+	</dl>
+	<dl class="holder2" id="catalog-holder-2-0"></dl>
+	</div>
+	<div class="clear"></div>
+	<div class="lemma-main-content" id="lemmaContent-0">
+	<h2 class="headline-1 first bk-sidecatalog-title"><a name="1"></a><a name="sub27154567_1"></a><span class="headline-content">南阳农运会简介</span></h2>　　南阳农运会将紧紧围绕“农”字设置农运会比赛项目，策划开、<a target=_blank href=/view/1014135.htm>闭幕式</a>文艺演出。本届农运会共设田径、篮球、游泳、毽球花毽、<a target=_blank href=/view/8182.htm>乒乓球</a>、<a target=_blank href=/view/125630.htm>中国式摔跤</a>、<a target=_blank href=/view/154264.htm>龙舟</a>、民兵军事三项、武术、健身秧歌、<a target=_blank href=/view/13701.htm>中国象棋</a>、<a target=_blank href=/view/102578.htm>舞龙</a>、<a target=_blank href=/view/34260.htm>舞狮</a>、自行车载重、<a target=_blank href=/view/3357.htm>风筝</a>、钓鱼等15个大项，176个小项。届时，将有来自全国31个省、市、<a target=_blank href=/view/54334.htm>自治区</a>以及港、澳、台地区3万多名体育健儿和各界人士参加盛会。还设置了搬重物赛跑、抗旱提水保苗赛跑、插秧赛、抢收粮食赛等，既趣味十足又贴近农民的日常生活<div class="bpctrl"></div><h2 class="headline-1 bk-sidecatalog-title"><a name="2"></a><a name="sub27154567_2"></a><span class="headline-content">准备工作</span></h2>　　第七届全国农民运动会将于2012年9月在河南省南阳市举办，目前各项筹备工作已全面展开，河南省和南阳市正加大筹办力度，精心组织实施，确保把本届农运会办成一届“高水平、有特色”的全国农民体育盛会。 
+	<div class="spctrl"></div>　　第七届全国农民运动会将于2012年在河南<a target=_blank href=/view/3000.htm>南阳</a>举行。这是南阳市、也是河南省建国以来承办的规格最高、规模最大的综合性体育赛事，是对南阳市综合实力、组织能力和精神状态的实际检验。自第七届全国农运会筹备工作开展以来，市领导高度重视，各级各部门联合行动，做了大量有成效的工作。南阳市委、市政府根据全国农运会办赛规律，并结合南阳市筹备工作实际开展情况，成立了“全国第七届农运会南阳市筹委会”及“一办六部”，即办公室、场馆建设部、财务部、宣传部、策划与市场开发部、检审和效能监察部、竞赛部，并积极开展“六创一迎”工作，“六创”是指在全市范围内开展“争创国家生态园林城市、中国优秀旅游城市、国家卫生城市、全国双拥模范城市、国家环保模范城市、全国文明城市”活动；“一迎”即“迎接全国第七届农民运动会”，全市动员、全民参与，实行市、县、乡、村“四级联动”，城乡共建、整体推进，完善城市功能、提升城市品位、打造生态宜居城市，改变村镇面貌、优化人居环境，建设和谐美丽新南阳。南阳将全力迎接第七届全国农民运动会的到来。市长<a target=_blank href=/view/1301598.htm>穆为民</a>发表讲话。他说，将于2012年在南阳举办的第七届全国农民运动会，是新中国成立以来我市、我省承办的规格最高、规模最大的综合性体育赛事，是对我市综合实力、组织能力和精神状态的一次大检阅。开通第七届全国农运会官方网站，就是要利用互联网宣传的巨大优势，在河南乃至全国广泛宣传农运会的筹备和进展情况，展示南阳作为主办城市的良好形象，从而营造良好的网上舆论氛围。 
+	<div class="spctrl"></div>　　穆为民强调，有关部门要以这次盛会此为契机，加大对农运会和“六创一迎”活动的宣传力度，充分展示我市经济建设和社会发展的新进展、新成果、新特点、新优势，彰显文化、民俗、历史以及人文关怀，树立起充满魅力、充满活力、充满潜力的南阳形象，努力把本届农运会办成“中原大地特色突出、综合效益历届最好”的全国农民体育盛会。 
+	<div class="spctrl"></div>　　在此前召开的“农运会”筹备工作动员大会上，南阳市原市委书记<a target=_blank href=/view/629842.htm>黄兴维</a>说：“第七届全国农运会在南阳举办，是国家对河南省和南阳市农民体育工作的充分肯定，是对南阳工作能力、综合实力的莫大信任，是对建设富强美好和谐新南阳的巨大鼓舞和鞭策；是南阳展示改革开放新成就的好窗口，是创名气、聚人气的好时机；是助推南阳科学发展的大机遇，必须紧紧抓住。”
+	<div class="spctrl"></div>　　<b>全力以赴办综合效益最好的盛会　　</b>
+	<div class="spctrl"></div>历经15年4次努力申办，南阳终于获得举办2012年第七届全国农运会的机会。
+	<div class="spctrl"></div>　　为办好本届盛会，南阳市提出了举全市之力、集全民之智，办一届“中原大地特色突出、综合效益历届最好”的全国农民体育盛会。
+	<div class="spctrl"></div>　　市长说：“筹办好第七届全国农运会事关南阳发展成败的大事，这项工作抓好了，就能推动城市建设打一个漂亮的“翻身仗”，促进全市经济社会发展跨上一个大台阶；反之，错过了这一机遇，上愧对省委、省政府的重托，下愧对南阳千万父老的厚望。”<div class="bpctrl"></div><h2 class="headline-1 bk-sidecatalog-title"><a name="3"></a><a name="sub27154567_3"></a><span class="headline-content">新的里程碑</span></h2>　　面对承办“农运会”这样千载难逢的机遇，南阳全市上下迅速形成共识。随即，一场全民参与筹办盛会的热潮席卷南阳大地，城市建设藉此装上“新引擎”，南阳开始加速“飞翔”。
+	<div class="spctrl"></div>　　据南阳市市长穆为民介绍，为牢牢抓住这一机遇，南阳曾先后5次邀请国内体育界、大型赛事运作、城市规划、融资等方面的专家，就运动会筹备、场馆建设、城市功能布局和景观设计、市场开发等方面进行研讨，还到承办过前两届全国农运会城市进行实地考察学习。 与此同时，他们坚持把筹办本届农运会与加快中原崛起相结合，与提高全省城乡群众文明素质相结合，与促进南阳跨越式发展相结合，力争突出农民体育运动特色、<a target=_blank href=/view/1462328.htm>中原文化</a>特色、全民参与特色，充分展示“新中原、新南阳、新崛起”的时代风貌。
+	<div class="spctrl"></div>　　主体育场、综合训练馆、游泳馆、新闻中心、农运会主题公园、文化广场、迎宾馆、<a target=_blank href=/view/1089358.htm>运动员村</a>等项目筹建正在进行；<a target=_blank href=/view/1816256.htm>城市生态</a>宜居样板区——东北分区。
+	<div class="spctrl"></div>　　农运会各主要场馆建设工地，是一派激动人心的建设场面。白天，塔吊机挥舞铁臂，城市崛起的身影依稀可见；夜晚，灯火通明、弧光闪耀，城市的夜景愈发靓丽动人。
+	<div class="spctrl"></div>　　建设进度捷报频传：截至4月10日，综合训练馆主体工程六层以下全部完工，目前已进入封顶施工阶段，完成工程总量的75%以上；游泳馆地下部分建设（游泳池等）已全部完成，现已开始地上部分施工，完成工程总量50%以上；主体育场的地下桩基、地基浇筑也已全部完成，地面以上部分施工随之全面展开。
+	<div class="spctrl"></div>　　城市新地标正在拔地而起，城市新窗口即将炫彩亮相，功能完善的东北分区也已完工。南阳城市建设树起新的里程碑，城市形象正在经历着一场波澜壮阔的华丽转身。<h3 class="headline-2 bk-sidecatalog-title"><a name="3_1"></a><a name="sub27154567_3_1"></a><span class="headline-content">态宜居样板区</span></h3>　　据初步测算，2012年，在南阳参加“农运会”的宾朋将达到6万人之多。让这么多人有序参与农运会，这对南阳来说是一场严峻考验。
+	<div class="spctrl"></div>　　为此，该市提出把场馆和服务设施建设作为东北分区建设的启动工程，做到与城市功能区划相结合、与赛后利用相结合，着力打造三大特色功能区：即以体育馆、游泳馆、综合训练馆为主体建筑，打造全民健身、大众休闲娱乐区； 以主体育场、迎宾馆、运动员村等为主体建筑，打造高品质生态示范新区；以新闻中心、农运会主题公园等为主体建筑，配套建设城市展馆、学校、医院、商贸、商住等配套设施，打造现代化信息传播区，进一步优化<a target=_blank href=/view/636126.htm>中心城市</a>的功能布局。
+	<div class="spctrl"></div>　　在市民热切期待的目光中，城市生态宜居样板区轮廓日渐清晰。三大特色功能区将为东北分区提供完善的功能支撑。建成之后，东北分区——这颗城市“明珠”，将会更加璀璨夺目。<h3 class="headline-2 bk-sidecatalog-title"><a name="3_2"></a><a name="sub27154567_3_2"></a><span class="headline-content">对接世界信息平台</span></h3>　　据悉，农运会举办期间，将至少有1500名中外记者云集南阳，报道盛会，推介南阳。为他们提供必要的办公场所、活动场地和信息传输服务，是成功举办盛会的必要条件。从这一目标出发，我市大手笔、高起点规划建设农运会信息平台。
+	<div class="spctrl"></div>　　新闻中心主体建筑包括新闻发布中心和广播电视中心两部分。新闻发布中心主要承担农运会期间的赛事新闻发布、记者办公任务。广播电视中心主要承担赛事<a target=_blank href=/view/3742702.htm>广播电视节目</a>的直播、转播、制作、传输等任务。新闻中心建成后，该市广播电视事业整体水平将达到省级以上，南阳将从此拥有对接世界的信息平台。<div class="bpctrl"></div><h2 class="headline-1 bk-sidecatalog-title"><a name="4"></a><a name="sub27154567_4"></a><span class="headline-content">谱写浓情赞歌</span></h2>　　作为城市的主人翁、“农运会”的东道主，广大南阳市民热切企盼盛会的举办，并积极投身农运会筹备工作，南阳上下同心迎盛会的热潮一浪高过一浪。
+	<div class="spctrl"></div>　　数年前，著名作家<a target=_blank href=/view/8466.htm>二月河</a>代表南阳出任“农运会”候选城市形象大使，为了使形象更贴近农民，他专门剃了光头。仅从这点上就足以看出，他对“农运会”的重视和期待。
+	<div class="spctrl"></div>　　与此同时，社会各界有钱出钱、有力出力，共同挥洒着东道主的激情与豪迈。在“六创一迎”活动中，广大市民以实际行动提升城市文明素养。捐压岁钱，捐零花钱，捐养老钱……市民自觉捐款行动感人至深、催人奋进。
+	<div class="spctrl"></div>　　在场馆建设中，广大涉迁群众以无私奉献精神谱写了一曲浓情赞歌，他们的奉献和支持使筹备工作“第一难”迎刃而解，实现了和谐拆迁、高效拆迁，创造了新的“南阳速度”。<div class="bpctrl"></div><h2 class="headline-1 bk-sidecatalog-title"><a name="5"></a><a name="sub27154567_5"></a><span class="headline-content">比赛场馆及地点</span></h2><h3 class="headline-2 bk-sidecatalog-title"><a name="5_1"></a><a name="sub27154567_5_1"></a><span class="headline-content">场馆</span></h3>　　水上<a target=_blank href=/view/648991.htm>运动场</a>（新建）：承担龙舟项目比赛
+	<div class="spctrl"></div>　　<a target=_blank href=/view/9875.htm>南阳理工学院</a>体育馆（新建）：承担男子篮球项目比赛
+	<div class="spctrl"></div>　　南阳农校体育馆（新建）：承担<a target=_blank href=/view/4643433.htm>女子篮球</a>项目比赛
+	<div class="spctrl"></div>　　<a target=_blank href=/view/1725593.htm>南阳医专</a>训练馆(改建)：承担毽球花毽项目比赛
+	<div class="spctrl"></div>　　<a target=_blank href=/view/35550.htm>南阳师范学院</a>体育馆(改建)：承担乒乓球项目比赛
+	<div class="spctrl"></div>　　<a target=_blank href=/view/3532766.htm>河南工院</a>体育馆(改建)：承担中国式摔跤项目比赛
+	<div class="spctrl"></div>　　南阳市体育馆：承担武术项目比赛
+	<div class="spctrl"></div>　　<a target=_blank href=/view/24476.htm>唐河县</a>体育馆（新建）：承担舞龙舞狮项目比赛
+	<div class="spctrl"></div>　　<a target=_blank href=/view/358056.htm>卧龙区</a>麒麟山庄(新建)：承担钓鱼项目比赛
+	<div class="spctrl"></div>　　<a target=_blank href=/view/144412.htm>南召县</a>莲花温泉公园（新建）：承担风筝项目比赛
+	<div class="spctrl"></div>　　<a target=_blank href=/view/52208.htm>邓州市</a>宾馆（改建）：承担中国象棋项目比赛
+	<div class="spctrl"></div>　　<a target=_blank href=/view/734195.htm>河南油田</a>体育馆（改建）：承担健身秧歌项目比赛
+	<div class="spctrl"></div>　　<a target=_blank href=/view/144394.htm>内乡县</a>滨河路（改建）：承担自行车载重项目比赛
+	<div class="spctrl"></div>　　南阳军分区民兵综合训练基地（改建）：承担民兵军事三项比赛<h3 class="headline-2 bk-sidecatalog-title"><a name="5_2"></a><a name="sub27154567_5_2"></a><span class="headline-content">地点</span></h3>　　南阳市中心城区
+	<div class="spctrl"></div>　　<a target=_blank href=/view/2681003.htm>南阳卧龙区</a>
+	<div class="spctrl"></div>　　南阳唐河县
+	<div class="spctrl"></div>　　南阳南召县
+	<div class="spctrl"></div>　　南阳邓州市
+	<div class="spctrl"></div>　　南阳内乡县<div class="bpctrl"></div><h2 class="headline-1 bk-sidecatalog-title"><a name="6"></a><a name="sub27154567_6"></a><span class="headline-content">主题和吉祥物</span></h2><h3 class="headline-2 bk-sidecatalog-title"><a name="6_1"></a><a name="sub27154567_6_1"></a><span class="headline-content">征集</span></h3>　　第七届全国农运会吉祥物、主题口号征集活动自今年4月19日启动以来，受到社会各界的广泛关注，全国各地（除港澳台）共有1918人参与投稿，呈现出应征范围广、作品多、覆盖面大、参与者众、质量较高的显著特点。不少作品既体现了第七届全国农运会的主题、内容，也展示了南阳市独特的地域自然文化特色和悠久的历史人文精神，以不同方式表达了对南阳成功举办第七届全国农运会的美好祝愿。　第七届全国农运会吉祥物和主题口号从2010年4月开始向全社会征集，共收到吉祥物应征作品316件，主题口号作品17162条。2011年11月16日，第七届全国农民运动会赛事主办方在北京举行新闻发布会，宣布第七届全国农运会筹委会正式成立。经评审委员会评审并报主办单位批准，吉祥物和主题口号正式揭晓。
+	<div class="spctrl"></div>　　中国邮政特别发行第七届全国农运会吉祥物个性化专题邮票1版(左图)，邮票主图为“喜上眉梢”，附图为第七届全国农运会吉祥物“牛牛”，版式为8枚中空型。<h3 class="headline-2 bk-sidecatalog-title"><a name="6_2"></a><a name="sub27154567_6_2"></a><span class="headline-content">会徽</span></h3>　　会徽图案由三个变形的字母“N”组成，分别代表农业、农村和农民。“N”是农字汉语拼音的第一个字母，表示农民运动会是全国农民的体育盛会。三个“N”字采用蓝、黄、绿三色，分别代表天空、大地和庄稼，表示农民体育植根于祖国大地，有着广泛的群众基础。<h3 class="headline-2 bk-sidecatalog-title"><a name="6_3"></a><a name="sub27154567_6_3"></a><span class="headline-content">吉祥物</span></h3>　　吉祥物名字为“牛牛”，表示全国农民牛劲十足，牛气冲天，生活越来越好。“牛牛”以著名的南阳黄牛为形象特征，体现了南阳的地域特色，传递出农民、农村与农业的内涵。作品经过拟人化与卡通设计后，动作强劲，彰显出农民运动员的力量与速度，表达出“更快、更高、更强”的体育精神。<h3 class="headline-2 bk-sidecatalog-title"><a name="6_4"></a><a name="sub27154567_6_4"></a><span class="headline-content">主题口号</span></h3>　　本届农运会的主题口号为：展农运风采，创中原辉煌。
+	<div class="spctrl"></div>　　第七届全国农运会是河南省自新中国成立以来承办的规格最高、规模最大的国家级综合性体育赛事。中国是世界上唯一定期举办全国农运会的国家，自1988年以来，已分别在北京、孝感、上海、绵阳、宜春、泉州成功举办了六届全国农运会。<h3 class="headline-2 bk-sidecatalog-title"><a name="6_5"></a><a name="sub27154567_6_5"></a><span class="headline-content">高度保密</span></h3>　　由于这次征集活动面广、线长、工作复杂、要求标准高，征集活动伊始，市筹委会就及时抽调专职人员进行培训，建立了严格的工作制度，保证征集活动有序、顺利进行。为维护作者作品的著作权和评选的公正性，市筹委会确定了对来稿、来信的“四专三不”原则：专设电子信箱，专人掌握密码，专人下载打印，专人收集保管；信函只登记、建档，不开封、不外传、不散发。
+	<div class="spctrl"></div>　　目前，南阳市筹委会已成立第七届全国农运会吉祥物、主题口号征集工作领导小组，下设吉祥物评审委员会、主题口号评审委员会，成员为有关领导和文化艺术界知名专家。下一步，筹委会将通过收集整理应征作品、专家组初评、广泛听取社会意见、专家组复审、总评等步骤确定最后入选作品，并报上级批准后择机向全社会公布。<div class="bpctrl"></div><h2 class="headline-1 bk-sidecatalog-title"><a name="7"></a><a name="sub27154567_7"></a><span class="headline-content">社会各界大力支持</span></h2><h3 class="headline-2 bk-sidecatalog-title"><a name="7_1"></a><a name="sub27154567_7_1"></a><span class="headline-content">领导单位</span></h3>　　农民体协<a target=_blank href=/view/303993.htm>陈耀邦</a>主席表示，对于南阳筹办第七届全国农运会，<a target=_blank href=/view/207021.htm>中国农民</a>体协会给予全力支持、帮助和指导。在争取政策、资金支持方面，河南、南阳要抓住国家大力支持“三农”工作的大好机遇，包装项目，发展特色农业，创造自己的优势和亮点。第七届全国农运会官方网站要抓紧时间建立起来，以其为平台，广泛宣传农运会，广泛宣传南阳，发挥其应有的功能和作用。
+	<div class="spctrl"></div>　　<a target=_blank href=/view/522562.htm>国家体育总局</a>副局长<a target=_blank href=/view/1882761.htm>冯建中</a>在听取有关部门汇报后指出，南阳要紧紧抓住举办第七届全国农运会这一良好契机，大力发展有特色、群众喜闻乐见、能够广泛参与的体育活动项目，把它做成优势项目、在全国甚至全世界都能够叫得响的项目。通过项目的建设，促进全民健身活动的开展，凝聚全社会的力量，提升全市人民的精神面貌和身体素质，努力为申报“全国全民健身试点市”以及“国家体育产业基地”创造条件。
+	<div class="spctrl"></div>　　在谈到第七届全国农运会筹办政策支持和资金的争取，以及发行“即开型”体育彩票，提高体育彩票分成比例等方面问题时，冯建中表示，国家体育总局将会考虑南阳农业大市、财力相对薄弱的实际情况，争取在不违背国家相关政策的前提下，积极沟通联络，做好协调，创造条件，给予河南南阳以最大支持。<h3 class="headline-2 bk-sidecatalog-title"><a name="7_2"></a><a name="sub27154567_7_2"></a><span class="headline-content">银行</span></h3>　　第七届全国农运会筹备工作目前正在紧锣密鼓地进行中，其作为国家五大综合赛事之一，已吸引了国内众多大型银行的关注，纷纷主动前来洽谈合作事宜。为此，7月1日下午，市政府召开专题会议，研究农运会特约服务银行工作。
+	<div class="spctrl"></div>　　参加会议的有副市长<a target=_blank href=/view/1303468.htm>张振强</a>、市政府副秘书长<a target=_blank href=/view/10417.htm>张伟</a>、市体育局局长杨明哲、市财局<a target=_blank href=/view/295198.htm>调研员</a>卢明韬、市政府督查室主任樊承昌，以及浦发银行、建设银行、中国银行、<a target=_blank href=/view/16863.htm>工商银行</a>、<a target=_blank href=/view/20174.htm>农业发展银行</a>、<a target=_blank href=/view/538993.htm>农业银行</a>、<a target=_blank href=/view/16157.htm>交通银行</a>、<a target=_blank href=/view/1898311.htm>南阳市商业银行</a>、南阳市农联社、市人行等10家银行的行长或相关负责人。
+	<div class="spctrl"></div>　　张振强介绍说，农运会不仅是一届有特色、高水平的运动会，它还是促进南阳市实现跨越式发展的一次重大机遇，市里要借这次机遇高标准规划出一座新城，为南阳市未来20年留足发展空间。市委、市政府有决心也有信心将这一大事做好。如果哪家银行签约成为第七届全国农运会的特约服务银行，必将从中受益匪浅。<div class="bpctrl"></div><h2 class="headline-1 bk-sidecatalog-title"><a name="8"></a><a name="sub27154567_8"></a><span class="headline-content">各项筹备工作</span></h2>　　建好一场两馆提升城市品位为确保办一届有特色、高标准的全国农民体育盛会，7月6日，南阳市政府第七次常务会议要求今后一个时期做好几项筹备工作。<h3 class="headline-2 bk-sidecatalog-title"><a name="8_1"></a><a name="sub27154567_8_1"></a><span class="headline-content">硬件</span></h3>　　抓好三大硬件建设。一是全面加快比赛场馆建设步伐。9月底前，要完成“一场两馆”（主体育场、游泳馆、综合训练馆）选址、用地、规划、设计等一切手续，争取年底前开工建设，确保2011年底前主体完成。二是精心组织好接待服务设施建设。要确保<a target=_blank href=/view/102589.htm>运动员</a>村、迎宾馆、代表团驻地、新闻中心、院校新建运动员公寓等2009年底开工建设，2011年底前全部竣工并交付使用。三是统筹推进市政、交通和通信设施建设。 
+	<div class="spctrl"></div>　　数字
+	<div class="spctrl"></div>　　15 ——新建、改建15个农运会比赛场馆，其中新建8个、提升改造7个
+	<div class="spctrl"></div>　　23——新建23家宾馆，其中三星级9家、四星级11家、五星级3家
+	<div class="spctrl"></div>　　25——新建近20条道路，拓宽改造5条道路
+	<div class="spctrl"></div>　　6000——预计第七届全国农运会高峰期接待人数在16000人左右
+	<div class="spctrl"></div>　　306000——在百度上输入“南阳全国农运会”，可搜到306000条相关新闻<h3 class="headline-2 bk-sidecatalog-title"><a name="8_2"></a><a name="sub27154567_8_2"></a><span class="headline-content">软件</span></h3>　　加强三大软件建设。一是努力提高全民素质。通过开展“六创一迎”活动，全面提高市民素质，提升城市品位，优化南阳软硬环境。二是积极策划好农运会开、闭幕式，努力创作出既有地方特色又为群众喜闻乐见的大型文体表演。三是加快推进“平安南阳”建设，努力营造安定和谐的政治社会环境。
+	<div class="spctrl"></div>　　迅速启动宣传推介工作。整合经济、文化、人才、信息等各类资源，吸引中央、省、市主流媒体参与，在国内大型经贸活动上宣传推介，迅速展开宣传工作，营造浓厚“农运”氛围。<h3 class="headline-2 bk-sidecatalog-title"><a name="8_3"></a><a name="sub27154567_8_3"></a><span class="headline-content">筹委会正式成立</span></h3>　　<sup>&#91;1&#93;</sup><a name="ref_&#91;1&#93;_27154567"></a>11月16日，第七届全国农民运动会在京宣布，本届农运会筹委会正式成立。这标志着将于明年9月16日在河南南阳市隆重举办的第七届全国农运会筹备工作进入新阶段。 
+	<div class="spctrl"></div>　　据悉，我国是世界上唯一定期举办农运会的国家，全国农运会与全运会、城运会、大学生运动会、体育大会通称为我国的五大综合性运动会。全国农民运动会是由农业部、国家体育总局和中国农民体协联合主办的综合性体育赛事，每四年举办一次。自1988年举办以来，目前已分别在北京、孝感、上海、绵阳、宜春、泉州举办了六届。 
+	<div class="spctrl"></div>　　据河南南阳市长穆为民介绍，河南是农业大省，南阳是农业大市，夏粮总产达到72.4亿斤，连续9年增产并再创历史新高，为国家粮食安全做出了积极贡献；南阳也是举世瞩目的南水北调中线工程重要水源地和渠首所在地。第七届全国农运会将紧紧围绕“农”字设置农运会比赛项目，策划开、闭幕式表演。他表示，第七届全国农运会，是南阳市也是河南省自新中国成立以来承办的规格最高、规模最大的国家级综合性体育赛事。结合南阳实际，我们把筹办全国农运会作为机遇、作为载体、作为民生、作为形象，提出了办一届“高水平、有特色、重节俭”农运会的指导思想。在工作推进中，我们坚持转变方式迎农运，顺应国内外节会发展规律，立足南阳农业大市的市情，不比大、不比洋、不比阔，在体现“农、文、民、势、特”上下功夫，着力办一届突出中原特色、南阳特色、农民特色的农运会，彰显中原大地的灿烂文化，力争办一届综合效益最好的农运会，办一届可持续性最强的农运会。<div class="bpctrl"></div><h2 class="headline-1 bk-sidecatalog-title"><a name="9"></a><a name="sub27154567_9"></a><span class="headline-content">历届农运会简介</span></h2>　　第一届农运会是1988年10月9日至16日在北京举行。
+	<div class="spctrl"></div>　　第二届农运会是1992年10月10日至18日在湖北省孝感市举行。
+	<div class="spctrl"></div>　　第三届农运会是1996年10月12日至19日在上海举行。
+	<div class="spctrl"></div>　　第四届农运会是2000年10月29日至11月14日在四川省绵阳市举行。
+	<div class="spctrl"></div>　　第五届农运会是2004年10月18日在江西宜春举行。
+	<div class="spctrl"></div>　　第六届农运会是2008年10月26日在福建泉州举行。
+	<div class="spctrl"></div>　　第七届农运会将于2012年在河南南阳举行。<div class="bpctrl" style="clear:both"></div><div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+	
+
+  </body>
+</html>

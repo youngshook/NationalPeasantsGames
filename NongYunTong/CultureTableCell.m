@@ -30,6 +30,7 @@
     [CellImage release];
     [CellLabel release];
     [CellLabelDes release];
+    [super dealloc];
 }
 
 @end

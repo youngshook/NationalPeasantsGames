@@ -11,5 +11,6 @@
 @interface PeopleXML : NSObject
 
 @property (strong,nonatomic) NSMutableArray *mutArray;
+@property (strong,nonatomic)NSString *string;
 -(void)XML:(NSString *)XmlFileName;
 @end

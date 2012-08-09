@@ -38,6 +38,15 @@
     raceTableView.delegate = self;
     raceTableView.dataSource = self;
     [self.view addSubview:raceTableView];
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 50.0f)];
+    label.text = @"2012南阳全国农民运动会";
+    label.textAlignment = UITextAlignmentCenter;
+    label.font = [UIFont boldSystemFontOfSize:14.0f];
+    label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.raceTableView.tableFooterView = label;
+    [label release];
+
+    
         // Do any additional sup after loading the view.
 }
 

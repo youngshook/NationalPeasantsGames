@@ -30,6 +30,7 @@
     [self.view addSubview:scrollView];
     textView = [[UITextView alloc]initWithFrame:CGRectMake(0, 200, 320, 480)];
     textView.text = racePlaceData.pIntroduction;
+    textView.font = [UIFont fontWithName:@"Arial" size:15.0f];
     textView.editable = NO;
     [scrollView addSubview:textView];
     imageView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 0, 240, 200)];

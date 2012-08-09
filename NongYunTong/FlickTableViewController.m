@@ -7,7 +7,7 @@
 //
 
 #import "FlickTableViewController.h"
-
+#import "ADLivelyTableView.h"
 @implementation FlickTableViewController
 @synthesize tableView=_tableView, flickTabView=_flickTabView;
 
@@ -15,14 +15,20 @@
 	[super loadView];
 	self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	
-	UITableView* tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
-	self.tableView = tableView;
-	[tableView release];
+	
+    
+    self.tableView = [[ADLivelyTableView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    self.tableView.initialCellTransformBlock = ADLivelyTransformHelix ;
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
+    
+
+
 	
 	self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	self.tableView.delegate = self;
 	self.tableView.dataSource = self;
-	
 	[self.view addSubview:self.tableView];
 	
 	FlickTabView* aFlickTabView = [[FlickTabView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 43.0f)];

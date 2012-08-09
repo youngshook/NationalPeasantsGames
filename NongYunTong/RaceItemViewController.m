@@ -52,7 +52,13 @@
     searchItemViewController1.itemgame = ItemData1;
     searchItemViewController2.itemgame = ItemData2;
     searchItemViewController3.itemgame = ItemData3;
-
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 50.0f)];
+    label.text = @"2012南阳全国农民运动会";
+    label.textAlignment = UITextAlignmentCenter;
+    label.font = [UIFont boldSystemFontOfSize:14.0f];
+    label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.tableView.tableFooterView = label;
+    [label release];
     
     self.mutableArray = [NSArray arrayWithObjects:searchItemViewController1,searchItemViewController2,searchItemViewController3,nil];
     [searchItemViewController1 release];

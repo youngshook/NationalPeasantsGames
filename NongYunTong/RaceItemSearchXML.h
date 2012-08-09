@@ -11,5 +11,6 @@
 @interface RaceItemSearchXML : NSObject
 @property (strong,nonatomic)RaceItemSearchData *raceItemSearchData;
 @property (strong,nonatomic)NSMutableArray *itemArray;
+@property (strong,nonatomic)NSString *string;
 -(NSMutableArray *)XML:(NSString *)itemXML;
 @end

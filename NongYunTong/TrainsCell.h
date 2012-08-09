@@ -15,4 +15,5 @@
 @property (strong,nonatomic) IBOutlet UILabel *label4;
 @property (strong,nonatomic) IBOutlet UILabel *label5;
 @property (strong,nonatomic) IBOutlet UILabel *label6;
+@property (strong,nonatomic) IBOutlet UIImageView *CellImage;
 @end

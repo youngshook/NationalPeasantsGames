@@ -10,14 +10,14 @@
 #import "RaceItemSearchData.h"
 #import "TBXML.h"
 @implementation RaceItemSearchXML
-@synthesize itemArray,raceItemSearchData;
+@synthesize itemArray,raceItemSearchData,string;
 
 -(NSMutableArray *)XML:(NSString *)itemXML {
     
     itemArray = [[NSMutableArray alloc]init];
     NSString *path = [[NSBundle mainBundle] pathForResource:itemXML ofType:@"xml"];
     NSData *data = [NSData dataWithContentsOfFile:path];
-    NSString *string = [[NSString alloc] initWithData:data encoding:0x80000632];
+    string = [[NSString alloc] initWithData:data encoding:0x80000632];
     string = [string stringByReplacingOccurrencesOfString:@"encoding=\"gb2312\"" withString:@""];
     
     NSData *newData = [string dataUsingEncoding:NSUTF8StringEncoding];
@@ -48,6 +48,14 @@
     }
     
     return itemArray;
+    
+}
+
+-(void)dealloc{
+    [raceItemSearchData release];
+    [string release];
+    [itemArray release];
+    [super dealloc];
     
 }
 

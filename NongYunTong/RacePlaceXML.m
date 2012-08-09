@@ -10,13 +10,13 @@
 #import "RacePlaceData.h"
 #import "TBXML.h"
 @implementation RacePlaceXML
-@synthesize racePlaceData,mutArray;
+@synthesize racePlaceData,mutArray,string;
 -(NSMutableArray *)XML {
     
     mutArray = [[NSMutableArray alloc]init];
     NSString *path = [[NSBundle mainBundle] pathForResource:@"competitionInfo" ofType:@"xml"];
     NSData *data = [NSData dataWithContentsOfFile:path];
-    NSString *string = [[NSString alloc] initWithData:data encoding:0x80000632];
+    string = [[NSString alloc] initWithData:data encoding:0x80000632];
     string = [string stringByReplacingOccurrencesOfString:@"encoding=\"gb2312\"" withString:@""];
     
     NSData *newData = [string dataUsingEncoding:NSUTF8StringEncoding];
@@ -47,8 +47,17 @@
             info = [TBXML nextSiblingNamed:@"competitionInfo" searchFromElement:info];
         }
     }
-    
+
     return mutArray;
     
 }
+
+-(void)dealloc{
+    [string release];
+    [racePlaceData release];
+    [mutArray release];
+    [super dealloc];
+}
+
 @end
+

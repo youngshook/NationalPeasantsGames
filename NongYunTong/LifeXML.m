@@ -11,7 +11,7 @@
 #import "LifeData.h"
 
 @implementation LifeXML
-@synthesize mutableArray,lifeData;
+@synthesize mutableArray,lifeData,string;
 
 
 -(NSMutableArray *)XML:(NSString *)itemXML {
@@ -19,7 +19,7 @@
     mutableArray = [[NSMutableArray alloc]init];
     NSString *path = [[NSBundle mainBundle] pathForResource:itemXML ofType:@"xml"];
     NSData *data = [NSData dataWithContentsOfFile:path];
-    NSString *string = [[NSString alloc] initWithData:data encoding:0x80000632];
+    string = [[NSString alloc] initWithData:data encoding:0x80000632];
     string = [string stringByReplacingOccurrencesOfString:@"encoding=\"gb2312\"" withString:@""];
     
     NSData *newData = [string dataUsingEncoding:NSUTF8StringEncoding];
@@ -59,5 +59,11 @@
     
 }
 
+-(void)dealloc{
+    [lifeData release];
+    [mutableArray release];
+    [string release];
+    [super dealloc];
+}
 
 @end

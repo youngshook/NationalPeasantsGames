@@ -19,7 +19,7 @@ extern ADLivelyTransform ADLivelyTransformHelix;
 extern ADLivelyTransform ADLivelyTransformTilt;
 extern ADLivelyTransform ADLivelyTransformWave;
 
-@interface ADLivelyTableView : UITableView <UITableViewDelegate> {
+@interface ADLivelyTableView : UITableView <UITableViewDelegate,UITableViewDataSource> {
     id <UITableViewDelegate>  _preLivelyDelegate;
     CGPoint _lastScrollPosition;
     CGPoint _currentScrollPosition;

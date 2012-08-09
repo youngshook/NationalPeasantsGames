@@ -40,7 +40,7 @@
     [super viewDidLoad];
    
     CultureTableView = [[ADLivelyTableView alloc] initWithFrame:CGRectMake(0, 0, 320, 370) style:UITableViewStylePlain];
-    CultureTableView.initialCellTransformBlock = ADLivelyTransformCurl;
+    CultureTableView.initialCellTransformBlock = ADLivelyTransformFan;
     CultureTableView.dataSource = self;
     CultureTableView.delegate = self;
     [self.view addSubview:CultureTableView];

@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PagePhotosDataSource.h"
+#import "PagePhotosView.h"
+@interface HomeViewController : UIViewController<PagePhotosDataSource,UITableViewDataSource,UITableViewDelegate>{
 
-@interface HomeViewController : UIViewController
-
--(IBAction)RaceCard:(id)sender;
--(IBAction)RaceItem:(id)sender;
--(IBAction)RaceVolunteer:(id)sender;
--(IBAction)RacePlace:(id)sender;
-
+}
+@property(strong,nonatomic)UITableView *homeTableView;
+@property(strong,nonatomic)NSMutableArray *mutableArrayTitle;
+@property(strong,nonatomic)NSMutableArray *mutableArrayImage;
 @end

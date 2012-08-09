@@ -2,15 +2,19 @@
 //  RaceVolunteerViewController.h
 //  NongYunTong
 //
-//  Created by YoungShook on 12-5-18.
-//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
+//  Created by YoungShook on 12-8-8.
+//
 //
 
 #import <UIKit/UIKit.h>
-@class VolunteerXML;
-@interface RaceVolunteerViewController : UITableViewController
 
-@property(strong,nonatomic)NSMutableArray *retractableControllers;
-@property(strong,nonatomic)VolunteerXML *volunteerXML;
-@property(strong,nonatomic)NSMutableArray *dataArray;
+@interface RaceVolunteerViewController : UIViewController<UIWebViewDelegate>{
+	UIWebView *web;
+	NSString *url;
+	
+	UIActivityIndicatorView *waitV;
+}
+
+- (id)initWithURLString:(NSString*)aurl;
+-(void)loadURL:(NSURL*)aurl;
 @end

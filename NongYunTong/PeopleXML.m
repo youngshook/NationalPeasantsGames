@@ -10,7 +10,7 @@
 #import "TBXML.h"
 #import "PeopleData.h"
 @implementation PeopleXML
-@synthesize mutArray;
+@synthesize mutArray,string;
 
 
 -(void)XML:(NSString *)XmlFileName {
@@ -18,10 +18,11 @@
     mutArray = [[NSMutableArray alloc]init];
     NSString *path = [[NSBundle mainBundle] pathForResource:XmlFileName ofType:@"xml"];
     NSData *data = [NSData dataWithContentsOfFile:path];
-    NSString *string = [[NSString alloc] initWithData:data encoding:0x80000632];
+    string = [[NSString alloc] initWithData:data encoding:0x80000632];
     string = [string stringByReplacingOccurrencesOfString:@"encoding=\"gb2312\"" withString:@""];
     
     NSData *newData = [string dataUsingEncoding:NSUTF8StringEncoding];
+
     TBXML *tbXml = [TBXML tbxmlWithXMLData:newData];
     
     TBXMLElement * root = tbXml.rootXMLElement;
@@ -48,8 +49,14 @@
         }
     }
     
+
     
-    
+}
+
+-(void)dealloc{
+    [mutArray release];
+    [string release];
+    [super dealloc];
 }
 
 @end

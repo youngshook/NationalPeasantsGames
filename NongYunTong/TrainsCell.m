@@ -9,7 +9,7 @@
 #import "TrainsCell.h"
 
 @implementation TrainsCell
-@synthesize label1,label2,label3,label4,label5,label6;
+@synthesize label1,label2,label3,label4,label5,label6,CellImage;
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
